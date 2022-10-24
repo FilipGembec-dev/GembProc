@@ -10,7 +10,11 @@ module processor#(memmoryFile = "BOOT_ROM.mem")(
     
     //defining workign memmory
     reg [7:0] M [(((2**15) - 1) - 255):0]; //8 bit data buss with 16 bit address buss
-
+    
+    initial begin //pasting the values from a premade memmory file to the working memmory
+        $readmemh(memmoryFile, M, 0, (((2**15) - 1) - 255));
+    end
+    
   
     //workign registers organised in a vector
     reg [7:0] REG[3:0];
