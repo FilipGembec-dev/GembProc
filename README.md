@@ -5,7 +5,7 @@ The same works for INput and OUTput ports, there is an example in the proc code 
 Size of stack is 255 bytes.
 
 Instruction set:
-    NOP                                            00
+  /*NOP                                            00
     HLT                                            01
     LDR <target register> <address0> <address1>    02
     STR <start register> <address0> <address1>     03
@@ -15,4 +15,4 @@ Instruction set:
     JMP <address0> <address1> 		       07
     JPC <argument operation> <address0> <address1> 08
     PUSH <start register> 			       09
-    POP <destination register>                     0a
+    POP <destination register>                     0a*/
