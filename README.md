@@ -17,7 +17,7 @@ The conditional jump operation can perform compariosons of registers and jump to
 ## Programing
 
 Processor instructions and memmory are loaded in to the ROM memmory by the Vivado tool from a .mem file (BOOT_ROM.mem in this case).
-Each bye of data is writen in their respective line representing a memmory addres altho using @(memmory location) gives more flexibility in addressing the memmory.
+Each byte of data is writen in their respective line representing a memmory addres altho using @(memmory location) gives more flexibility in addressing the memmory.
 The Ass program complexity rises the machine code becomes to intricate to do by hand, an **Assembly compiler** was made to help with programing the low level Assembly code. Raw source code for the compiler is provided in the repo. 
 
 ### The compiler
@@ -25,26 +25,45 @@ The Ass program complexity rises the machine code becomes to intricate to do by 
 The compiler has no natural language processing and scans the texst file for keywords and reads the rest of the line acording to the keyword. 
 
 #define keyword is used to define new indentifiers for values  
-example: 
-#define A 0
 
-# (label name) syntax is used for creating labels that point to the next instruction in the code and are used for jumping around in the program
-example: 
+```
+#define A 0
+#define *A 456
+```
+
+.# (label name) syntax is used for creating labels that point to the next instruction in the code and are used for jumping around in the program
+
+```
  # loop  
- LDR A 456 
+ LDR A *A
+ JMP loop
+```
+
+@ (address) (value) syntax is used to set values at address spaces, indentifiers defined using define can't be used with the @ operation as of yet
+
+```
+@ 456 4
+```
+
+Other instructions are inputed acording th the instruzction set writen bellow.
+All numerical values are writen in the precompiled source code in decimal format.
+The compiler will make a new file (if one named mem.mem does not yet exist) mem.mem and store all the compiled machine code in that file.
+In case of syntax errors the compiler can't yet inform the user what is the error and will often result in function errors(being unable to convert string to integers, etc). **_Its a work in progress_**
+A bare minimum file is provided in the repo that defines all macros for instruction arguments.
+
 
 
 #### Instruction set
 
 > NOP  00                                                      
 > HLT  01                                                      
-> LDR  02  (Register to load in to) (address[7:0])  (address[15:8])    
-> STR  03  (Register to store) (address[7:0])  (address[15:8])       
+> LDR  02  (Register to load in to) (address)   
+> STR  03  (Register to store) (address)
 > OUT  04  (Register to output) (Port to store to)                   
 > IN   05  (Register to load in to) (Port from witch to load)     
 > ALU  06  (Operation) (second operator)                             
-> JMP  07  (address[7:0]) (address[15:8])                            
-> JPC  08  (Argument) (address[7:0]) (address[15:8])                   
+> JMP  07  (address)                          
+> JPC  08  (Argument) (address)                 
 > PUSH 09  (Register to push to the stack)                         
 > POP  0a  (Register to pop to from the stack)    
 
