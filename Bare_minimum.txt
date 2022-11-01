@@ -1,0 +1,31 @@
+#define A 0
+#define B 1
+#define C 2
+#define D 3
+
+#define OUT00 0
+#define OUT01 1
+
+#define IN00 0
+#define IN01 1
+
+#define and 0
+#define or 1
+#define xor 2
+#define not 3
+#define add 4
+#define sub 5
+#define mlt 6
+#define div 7
+
+#define flip 8
+#define reset 9
+#define set 10
+
+#define equal 0
+#define greater 1
+#define less 2
+#define carry 3
+#define negSign 4
+#define zero 5
+#define Timer 6
