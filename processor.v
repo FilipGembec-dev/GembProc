@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module top (input [7:0] IN00, [7:0] IN01, output [7:0] OUT00, [7:0] OUT01);
-    PULLUP PULLUP_inst(rst);
+    PULLDOWN PULLDOWN_inst(rst);
     
     reg CLK100MHZ = 0;
     
