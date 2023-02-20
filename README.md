@@ -45,12 +45,12 @@ The compiler has no natural language processing and scans the texst file for key
 @ 456 4
 ```
 
-Other instructions are inputed acording th the instruzction set writen bellow.
+Other instructions are given acording th the instruztion set writen bellow.
 All numerical values are writen in the precompiled source code in decimal format.
 The compiler will make a new file (if one named mem.mem does not yet exist) mem.mem and store all the compiled machine code in that file.
-In case of syntax errors the compiler can't yet inform the user what is the error and will often result in function errors(being unable to convert string to integers, etc). **_Its a work in progress_**
-A bare minimum file is provided in the repo that defines all macros for instruction arguments.
+In case of syntax errors the compiler can't yet inform the user what is the error and will often result in function errors(being unable to convert string to integers, etc). 
 
+A bare minimum file is provided in the repo that defines all macros for instruction arguments.
 
 
 #### Instruction set
